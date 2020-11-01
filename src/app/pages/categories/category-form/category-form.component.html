@@ -1,0 +1,85 @@
+<form [formGroup]="categoryForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Title" formControlName="title">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea rows="4"  matInput placeholder="Descriptions" formControlName="descriptions"></textarea>
+            <mat-error *ngIf="categoryForm.controls['descriptions'].hasError('required')">
+              Descriptions is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <img height="150" 
+              width="150"
+              [src]="src"
+              alt="Photo of a Shiba Inu"              
+              >           
+              <input type="file" class="form-control" name="selectImage" (change)="onFileChanged($event)" value="">
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Slug" formControlName="slug">
+            <mat-error *ngIf="categoryForm.controls['slug'].hasError('required')">
+              Slug is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Type" formControlName="type" [(value)]="selected">
+              <mat-option *ngFor="let state of states" [value]="state.name">
+                {{ state.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="categoryForm.controls['type'].hasError('required')">
+              Type is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+
+          <mat-slide-toggle formControlName="active">IS Active</mat-slide-toggle>
+          <mat-error *ngIf="categoryForm.controls['active'].hasError('required')">
+            IS Active <strong>required</strong>
+          </mat-error>
+
+        </div>
+        <div class="col" *ngIf="selected == 'Sub Category'">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Parent" formControlName="parent">
+              <mat-option *ngFor="let state of states" [value]="state.name">
+                {{ state.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="categoryForm.controls['parent'].hasError('required')">
+              Parent is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

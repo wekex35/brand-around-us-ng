@@ -1,0 +1,77 @@
+<mat-card class="shipping-card">
+  <mat-card-content>
+<form [formGroup]="ProductInfoForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group row">
+    <label for="field-2" class="col-md-3 col-form-label"> Name</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="name" formControlName="name" value="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="field-2" class="col-md-3 col-form-label"> Images</label>
+    <div class="col-md-9">
+      <input type="file" class="form-control" name="images" formControlName="images" value="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="field-2" class="col-md-3 col-form-label"> Description</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="description" formControlName="description" value="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="field-2" class="col-md-3 col-form-label"> Featured</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="featured" formControlName="featured" value="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="field-2" class="col-md-3 col-form-label"> Package Items Count</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="package_items_count" formControlName="package_items_count" value="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="field-2" class="col-md-3 col-form-label"> Capacity</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="capacity" formControlName="capacity" value="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="field-2" class="col-md-3 col-form-label"> Price</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="price" formControlName="price" value="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="field-2" class="col-md-3 col-form-label"> Unit</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="unit" formControlName="unit" value="">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="field-2" class="col-md-3 col-form-label"> Brand Id</label>
+    <div class="col-md-9">
+      <select class="form-control" name="brand_id" formControlName="brand_id" value="">
+        <option>text</option>
+
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="field-2" class="col-md-3 col-form-label"> Category Id</label>
+    <div class="col-md-9">
+      <select class="form-control" name="category_id" formControlName="category_id" value="">
+        <option>text</option>
+
+      </select>
+    </div>
+  </div>
+</form>
+</mat-card-content>
+<mat-card-actions>
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</mat-card-actions>
+</mat-card>
+
